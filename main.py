@@ -45,6 +45,47 @@ class ProductGenerator:
         ]
         return ";".join(prices)
 
+    def generate_categories_file(self):
+        with open(f'{Config.SUNRISE_PATH}/data/categories.csv', 'w', newline='') as csvfile:
+            fieldnames = ["key", "externalId", "parentId", "orderHint", "name.en", "description.en", "slug.en",
+                          "metaTitle.en", "metaDescription.en", "metaKeywords.en"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames, quoting=csv.QUOTE_NONNUMERIC)
+            writer.writeheader()
+
+            parents = set()
+            for category in possible_values["categories"]:
+                parent, key = category.split('>')
+                parents.add(parent)
+
+                row = {
+                    "key": key,
+                    "externalId": key,
+                    "parentId": parent,
+                    "orderHint": "1",
+                    "name.en": key.replace("_", " "),
+                    "description.en": "",
+                    "slug.en": key.lower(),
+                    "metaTitle.en": "",
+                    "metaDescription.en": "",
+                    "metaKeywords.en": key.lower()
+                }
+                writer.writerow(row)
+
+            for parent in parents:
+                row = {
+                    "key": parent,
+                    "externalId": parent,
+                    "parentId": "",
+                    "orderHint": "1",
+                    "name.en": parent.replace("_", " "),
+                    "description.en": "",
+                    "slug.en": parent.lower(),
+                    "metaTitle.en": "",
+                    "metaDescription.en": "",
+                    "metaKeywords.en": key.lower()
+                }
+                writer.writerow(row)
+
     def generate_products_file(self):
         with open(f'{Config.SUNRISE_PATH}/data/products.csv', 'w', newline='') as csvfile:
             fieldnames = list(possible_values.keys())
@@ -54,10 +95,13 @@ class ProductGenerator:
             for _ in range(NUM_ROWS):
                 row = {}
                 category = random.choice(list(possible_values["categories"]))
-                row["categories"] = category
+                # Remove everything before the last >
+                row["categories"] = category.split(">")[-1]
 
                 for field in fieldnames:
-                    if field == "creationDate":
+                    if field == "categories":
+                        continue
+                    elif field == "creationDate":
                         row[field] = fake.date_between(start_date='-1y', end_date='today')
                     elif field == "sku":
                         sku = self.generate_random_sku()
@@ -113,7 +157,6 @@ class ProductGenerator:
                     key = channel['key']
                     row = {"sku": sku, "quantityOnStock": random.randint(0, 1000), "supplyChannel": key}
                     writer.writerow(row)
-                    print("Generated inventory row: ", row)
 
     def generate_taxes_file(self):
         # Generate the list of tax data
@@ -150,6 +193,7 @@ class ProductGenerator:
 
 def generate_all():
     generator = ProductGenerator()
+    generator.generate_categories_file()
     generator.generate_products_file()
     generator.generate_inventory_file()
     generator.generate_taxes_file()

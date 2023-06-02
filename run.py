@@ -39,14 +39,16 @@ def run():
     if not os.path.exists(os.path.join(Config.SUNRISE_PATH, '.env')):
         shutil.copy(os.path.join(os.path.dirname(os.path.realpath(__file__)), '.env'),
                     os.path.join(Config.SUNRISE_PATH, '.env'))
+        print(f'Copied .env file to {Config.SUNRISE_PATH}')
     else:
         overwrite_env = input("Overwrite .env file in sunrise folder? (y/n) ")
         if overwrite_env.lower() == 'y':
             shutil.copy(os.path.join(os.path.dirname(os.path.realpath(__file__)), '.env'),
                         os.path.join(Config.SUNRISE_PATH, '.env'))
+            print(f'Overwrited .env file to {Config.SUNRISE_PATH}')
+    print(f'\033[93mProject key: {Config.PROJECT_KEY}\033[0m')
     run_npm = input("Run cleanup before the import? (y/n) ")
     generate_all()
-    copy_files(SOURCE_DIR, TARGET_DIR)
     if run_npm.lower() == 'y':
         npm_clean_commands = ['clean:categories', 'clean:products', 'clean:inventory',
                               'clean:shippingmethods', 'clean:taxCategories']

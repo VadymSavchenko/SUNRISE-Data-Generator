@@ -9,7 +9,7 @@ load_dotenv('.env')
 class Config:
     # Change this to your SUNRISE repo path.
     # If you haven't cloned it yet, do git clone https://github.com/commercetools/commercetools-sunrise-data.git
-    SUNRISE_PATH = r"C:\Users\User_Name\commercetools-sunrise-data-master"
+    SUNRISE_PATH = r"C:\Users\Vadym_Savchenko\EPAM_MACH\commercetools-sunrise-data"
 
     PROJECT_KEY = os.getenv('CTP_PROJECT_KEY')
     CLIENT_ID = os.getenv('CTP_CLIENT_ID')

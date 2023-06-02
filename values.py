@@ -11,12 +11,12 @@ STORES = ['']
 possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "variantKey": [], "baseId": [], "prices": [],
                    "tax": ['standard'],
                    # These categories should also be present inside the shop_images folder
-                   "categories": ['Air_compressor', 'Bench_grinder', 'Concrete_mixer',
-                                  'Sander', 'Saw', 'Vacuum', 'Drill'],
-                   "images": {  # Not used, currently using placeholder images
+                   "categories": ['Machinery>Air_compressors', 'Machinery>Bench_grinders', 'Machinery>Concrete_mixers',
+                                  'Power_tools>Sanders', 'Power_tools>Saws', 'Power_tools>Vacuums', 'Power_tools>Drills'],
+                   "images": {  # Not used, currently using placeholder image
                    },
                    "name.en": {
-                       "Air_compressor": [
+                       "Air_compressors": [
                            "ForcePeak Air Compressor",
                            "QuietElite Air Compressor",
                            "TurboAce Air Compressor",
@@ -38,7 +38,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "SmartBoost Air Compressor",
                            "SuperiorGlide Pro Compressor"
                        ],
-                       "Bench_grinder": [
+                       "Bench_grinders": [
                            "Artisan 6-inch Bench Grinder",
                            "DeltaForce Bench Grinder",
                            "DeltaTitan Bench Grinder",
@@ -60,7 +60,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Ridgit Precision Bench Grinder",
                            "ChicagoPower Electric Tools Bench Grinder"
                        ],
-                       "Concrete_mixer": [
+                       "Concrete_mixers": [
                            "Maxtita Heavy-Duty Concrete Mixer",
                            "Kushflex Portable Concrete Mixer",
                            "YardKing Compact Concrete Mixer",
@@ -82,7 +82,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Koglide Construction Concrete Mixer",
                            "SKILLFORCE Power Tools Concrete Mixer"
                        ],
-                       "Drill": [
+                       "Drills": [
                            "DRIVEWELL 20V MAX Cordless Drill",
                            "BLACK+DECKER 20V MAX HyperDrive",
                            "Maxtita XFD131 18V LXT Drill",
@@ -104,7 +104,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Flex 24V Brushless Drill",
                            "Husket 20V Drill"
                        ],
-                       "Sander": [
+                       "Sanders": [
                            "DRIVEWELL Random Orbit Sander",
                            "BLACK+DECKER Mouse Detail Sander",
                            "Maxtita Belt and Disc Sander",
@@ -126,7 +126,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Flex ORE 150-3 6 Random Orbital Sander",
                            "Husket H4821 6 In. Dual Action Sander"
                        ],
-                       "Saw": [
+                       "Saws": [
                            "DRIVEWELL 20V MAX 7-1/4-Inch Circular Saw",
                            "BLACK+DECKER 20V MAX 5-1/2-Inch HyperSaw",
                            "Maxtita 18V LXT Lithium-Ion Cordless 6-1/2-Inch Circular Saw",
@@ -148,7 +148,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Flex 24V Brushless 7-1/4-Inch Circular Saw",
                            "Husket 20V 6-1/2 Inch Cordless Circular Saw"
                        ],
-                       "Vacuum": [
+                       "Vacuums": [
                            "Cyclon V11 Torque Drive Cordless Vacuum",
                            "Sharko Navigator Lift-Away Deluxe NV360 Upright Vacuum",
                            "Miele Compact C1 Canister Vacuum",
@@ -172,7 +172,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                        ]
                    },
                    "description.en": {
-                       'Air_compressor': [
+                       'Air_compressors': [
                            "This powerful air compressor delivers efficient performance and is suitable for various applications.",
                            "Enjoy the convenience of a portable compressor with this silent-flow model. Perfect for home or on-the-go use.",
                            "The AirBlast heavy-duty compressor offers superior power and durability for demanding industrial tasks.",
@@ -194,7 +194,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "The UltraForce oil-free compressor combines power and efficiency while eliminating the need for oil maintenance.",
                            "TurboJet high-performance compressor delivers exceptional performance and versatility for various pneumatic tasks."
                        ],
-                       'Bench_grinder': [
+                       'Bench_grinders': [
                            "A robust bench grinder offering unparalleled precision.",
                            "Heavy-duty bench grinder perfect for your workshop.",
                            "High-performance bench grinder for various grinding tasks.",
@@ -216,7 +216,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Variable speed bench grinder for precise control.",
                            "Affordable bench grinder without compromising on performance."
                        ],
-                       'Concrete_mixer': [
+                       'Concrete_mixers': [
                            "Highly reliable concrete mixer suitable for large construction projects.",
                            "Efficient concrete mixer that ensures a smooth and homogenous mix every time.",
                            "Durable concrete mixer designed for rigorous use.",
@@ -238,7 +238,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Robust concrete mixer that promises long-term durability.",
                            "Concrete mixer with a sturdy frame and easy-grip handles."
                        ],
-                       'Drill': [
+                       'Drills': [
                            "Cordless drill designed for high-performance drilling and screw driving.",
                            "Compact and lightweight drill, perfect for working in tight spaces.",
                            "Robust drill with advanced battery technology for longer runtime.",
@@ -260,7 +260,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Affordable drill without compromising on power or performance.",
                            "Drill with a compact design and easy storage options."
                        ],
-                       'Sander': [
+                       'Sanders': [
                            "Powerful sander that offers smooth, fast sanding.",
                            "Compact and lightweight sander, perfect for detailed work.",
                            "Efficient sander with a high-capacity dust bag for cleaner workspace.",
@@ -282,7 +282,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Sander with a large sanding base for better stability and precision.",
                            "Sander with a low-vibration design for comfortable and controlled operation."
                        ],
-                       'Saw': [
+                       'Saws': [
                            "Electric saw with a robust and reliable design for tough cutting tasks.",
                            "High-performance saw suitable for cutting a variety of materials.",
                            "Cordless saw that ensures flexibility and easy maneuverability.",
@@ -304,7 +304,7 @@ possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "vari
                            "Reliable electric saw that ensures accurate cuts and long-term durability.",
                            "Electric saw with a safety switch to prevent accidental start-ups."
                        ],
-                       'Vacuum': [
+                       'Vacuums': [
                            "Powerful vacuum cleaner with superior suction capabilities.",
                            "Cordless vacuum that ensures maximum flexibility during cleaning.",
                            "Vacuum cleaner with a high-capacity dustbin for uninterrupted cleaning.",
