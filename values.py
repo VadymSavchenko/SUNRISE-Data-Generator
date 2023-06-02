@@ -10,6 +10,7 @@ STORES = ['']
 
 possible_values = {"productType": ['main'], "variantId": ['1'], "sku": [], "variantKey": [], "baseId": [], "prices": [],
                    "tax": ['standard'],
+                   # These categories should also be present inside the shop_images folder
                    "categories": ['Air_compressor', 'Bench_grinder', 'Concrete_mixer',
                                   'Sander', 'Saw', 'Vacuum', 'Drill'],
                    "images": {  # Not used, currently using placeholder images

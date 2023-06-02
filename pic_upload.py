@@ -98,6 +98,7 @@ def remove_product_image(product_id, version, variant_id, image_url, token):
     response = requests.post(url, headers=headers, data=payload)
 
     if response.status_code == 200:
+        print(f"\tSuccessfully removed image {image_url} from product {product_id}")
         return response.json()
     else:
         print(f"\tFailed to remove image. Status code: {response.status_code}, response: {response.text}")
@@ -142,11 +143,13 @@ def upload_pics():
         category_id = product["masterData"]["current"]["categories"][0]['id']
         category_name = get_category_by_id(category_id, token)["key"]
 
-        # assuming there are images for each category, might fail otherwise
-        image_path = f"shop_images/{category_name}/{random.randint(1, 20)}.jpg"
+        # Get random image from shop_images/{category_name} folder, checking if the folder exists and has images
+        if not os.path.exists(f'shop_images/{category_name}') or len(os.listdir(f'shop_images/{category_name}')) == 0:
+            print(f"\tNo images for category {category_name}")
+            continue
+        image_path = f"shop_images/{category_name}/{random.choice(os.listdir(f'shop_images/{category_name}'))}"
 
-        response = remove_product_image(product_id, version, variant_id, 'placeholder.jpg', token)
-        print(f"\tRemove image response: {response}")
+        remove_product_image(product_id, version, variant_id, 'placeholder.jpg', token)
         if os.path.exists(image_path):
             version = upload_image(token, product_id, variant_id, image_path)
             publish_product(token, product_id, version)

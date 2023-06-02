@@ -35,6 +35,15 @@ def copy_files(source, target):
 
 
 def run():
+    # copy .env file to sunrise folder, if it doesn't exist there. If it does, ask user if they want to overwrite it.
+    if not os.path.exists(os.path.join(Config.SUNRISE_PATH, '.env')):
+        shutil.copy(os.path.join(os.path.dirname(os.path.realpath(__file__)), '.env'),
+                    os.path.join(Config.SUNRISE_PATH, '.env'))
+    else:
+        overwrite_env = input("Overwrite .env file in sunrise folder? (y/n) ")
+        if overwrite_env.lower() == 'y':
+            shutil.copy(os.path.join(os.path.dirname(os.path.realpath(__file__)), '.env'),
+                        os.path.join(Config.SUNRISE_PATH, '.env'))
     run_npm = input("Run cleanup before the import? (y/n) ")
     generate_all()
     copy_files(SOURCE_DIR, TARGET_DIR)
