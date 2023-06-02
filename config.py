@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 
 # Env file should be in the same folder as config.py if you want to run scripts separately
-# If you want to run the run.py script, check the path to sunrise folder in it.
+# If you want to run the run.py script, check the path to sunrise folder.
 load_dotenv('.env')
 
 
