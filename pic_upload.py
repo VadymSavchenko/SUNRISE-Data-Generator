@@ -133,11 +133,12 @@ def publish_product(token, product_id, version):
 def upload_pics():
     token = auth()
     products = get_products(token)
-    print(f"Found {len(products['results'])} products")
+    product_count = products["total"]
+    print(f"Found {product_count} products")
     for index, product in enumerate(products["results"]):
         product_id = product["id"]
         product_name = product["masterData"]["current"]["name"]["en"]
-        print(f"{index}: Uploading images for product {product_name}")
+        print(f"{index}/{product_count}: Uploading images for product {product_name}")
         variant_id = 1  # product["masterVariant"]["id"]
         version = product["version"]
         category_id = product["masterData"]["current"]["categories"][0]['id']
