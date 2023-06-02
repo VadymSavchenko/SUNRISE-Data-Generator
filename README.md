@@ -20,4 +20,4 @@ A set of scripts to generate test data for Commercetools
 2. Run the run.py script
    1. You will be prompted to replace the .env file if it already exists in the sunrise-data repository.
    2. Check your Project key when prompted and press Enter
-   3. Choose weather to run cleanups or not. This will clean everything that this script can create.
+   3. Choose whether to run cleanups or not. This will clean everything that this script can create.
