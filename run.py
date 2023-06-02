@@ -46,7 +46,8 @@ def run():
             shutil.copy(os.path.join(os.path.dirname(os.path.realpath(__file__)), '.env'),
                         os.path.join(Config.SUNRISE_PATH, '.env'))
             print(f'Overwrited .env file to {Config.SUNRISE_PATH}')
-    print(f'\033[93mProject key: {Config.PROJECT_KEY}\033[0m')
+    print(f'\033[93mProject key: {Config.PROJECT_KEY}.\033[0m Make sure it is correct and press Enter to continue...')
+    input()
     run_npm = input("Run cleanup before the import? (y/n) ")
     generate_all()
     if run_npm.lower() == 'y':
